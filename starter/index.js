@@ -87,13 +87,15 @@ var finances = [
 ['Feb-2017', 671099]
 ];
 
-// console.log ('total is ' + finances.length); (I added this first but realised although it works, im not sure if it best if finances and months change)
 
+    var months = finances.length;
+var total = 0;
+var change = 0;
+var average;
+var analysis
+var net = 0;
+var netArray = [];
+var netChangeSum = 0;
+var least = ['', 9999999999999];
+var greatest = ['', 0];
 
-    for (var i= 0; i < finances.length; i++) {
-        var financesRow = finances[i]; 
-        var financesRowMonth = financesRow [0];
-        var financesRowValue = financesRow[1];
-    }
-
-    console.log ('total months: ' + [i]);
