@@ -99,3 +99,42 @@ var netChangeSum = 0;
 var least = ['', 9999999999999];
 var greatest = ['', 0];
 
+
+  // The total number of months included in the dataset 
+
+for (var i = 0; i < finances.length; i++) {
+    for (var j = 0; j < finances[i].length; j++) {
+      if(typeof finances[i][j] !== 'string') {
+        total += finances[i][j]
+        change = finances[i][j] - net;
+        net = finances[i][j];
+        netArray.push(change);
+    
+      
+        if (change > greatest[1]) {
+          greatest = [finances[i][0], finances[i][1]];
+        }
+  
+        if (change < least[1]) {
+          least = [finances[i][0], finances[i][1]];
+        }
+      }
+    }
+  }
+
+
+//   total porfits and losses
+  for (var i = 0; i < netArray.length; i++) {
+    netChangeSum += netArray[i];
+  }
+  
+  average = Math.round((netChangeSum / 86) * 100) / 100;
+  
+  analysis = 'Financial Analysis ' + 'below:' + '\n' + 
+  'Total Months: ' + months + '\n' + 
+  'Total: $' + total + '\n' + 
+  'Average Change: ' + average + '\n' + 
+  'Greatest Increase: ' + greatest[0] + ': $' + greatest[1] + '\n' + 
+  'Greatest Decrease: ' + least[0] + ': $' + least[1];
+  
+  console.log(analysis);
